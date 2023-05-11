@@ -1,0 +1,2 @@
+# bitponystreamreader
+Bitcoin fast parsing

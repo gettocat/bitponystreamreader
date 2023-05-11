@@ -1,0 +1,33 @@
+{
+    "name": "bitponystreamreader",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "small and fast library for parsing bitcoin raw blocks and transactions",
+    "main": "index.js",
+    "bin": "",
+    "tests": "./_tests/",
+    "dependencies": {
+        "base-58": "^0.0.1",
+        "bech32": "2.0.0",
+        "hash.js": "1.1.7",
+        "int64-buffer": "^1.0.1",
+        "@graphprotocol/graph-cli":""
+    },
+    "author": "Nanocat (@gettocat) <alex@letris.ru>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/gettocat/bitPonyStreamReader/issues"
+    },
+    "homepage": "https://github.com/gettocat/bitPonyStreamReader",
+    "keywords": [
+        "bitcoin",
+        "bitcoin protocol raw",
+        "transaction parser",
+        "block parser",
+        "blockchain"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/gettocat/bitPonyStreamReader"
+    }
+}

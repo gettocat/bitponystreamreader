@@ -1,8 +1,8 @@
 
-import { BitcoinTxStream } from '../index.js'
-import fs from 'fs';
+const { BitcoinTxStream } = require('../index.js')
+const fs = require('fs');
 
-export function testOrdParsing() {
+module.exports.testOrdParsing = function testOrdParsing() {
 
     return new Promise(resolve => {
         const txstream = new BitcoinTxStream(

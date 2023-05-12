@@ -1,9 +1,8 @@
-import { BitcoinStreamModule } from "../bitcoinstreammodule.js";
-import hash from 'hash.js';
-import base58 from 'base-58';
-import crypto from 'crypto';
-import { bech32, bech32m } from 'bech32';
-
+const { BitcoinStreamModule } = require("../bitcoinstreammodule.js");
+const hash = require('hash.js');
+const base58 = require('base-58');
+const crypto = require('crypto');
+const { bech32, bech32m } = require('bech32');
 
 let createAddress = (buffer, type) => {
     let sha256 = function (message, output) {
@@ -142,7 +141,7 @@ let scriptToAddress = (script) => {
     }
 }
 
-export class BitcoinStreamAddressModule extends BitcoinStreamModule {
+module.exports.BitcoinStreamAddressModule = class BitcoinStreamAddressModule extends BitcoinStreamModule {
     constructor() {
         super('txout_script', 'address', function () {
             this.tx.out[this.readOut - 1].address = scriptToAddress(this.tx.out[this.readOut - 1].script);

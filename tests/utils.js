@@ -1,8 +1,8 @@
-import https from 'https';
-import fs from 'fs';
-import { BitcoinBlockStream } from '../index.js'
+const https = require('https');
+const fs = require('fs')
+const { BitcoinBlockStream } = require('../index.js')
 
-export function getLastBlockHeight() {
+module.exports.getLastBlockHeight = function () {
 
     return new Promise((resolve, reject) => {
         https.request({
@@ -32,7 +32,7 @@ export function getLastBlockHeight() {
     })
 }
 
-export function getBlockByHeight(height, format) {
+module.exports.getBlockByHeight = function (height, format) {
     if (!format)
         format = 'json';
 
@@ -67,7 +67,7 @@ export function getBlockByHeight(height, format) {
     })
 }
 
-export function getBlock(hash, format) {
+module.exports.getBlock = function (hash, format) {
     if (!format)
         format = 'json';
 
@@ -102,7 +102,7 @@ export function getBlock(hash, format) {
     })
 }
 
-export function testBlockAddressOuts(num) {
+module.exports.testBlockAddressOuts = function (num) {
     let addrVersionTested = {};
     let txhashes = [];
     let origs = {};
@@ -112,11 +112,11 @@ export function testBlockAddressOuts(num) {
 
     let hash;
 
-    return getBlockByHeight(num)
+    return module.exports.getBlockByHeight(num)
         .then((block) => {
 
             hash = block.hash;
-            return getBlock(block.hash, 'hex')
+            return module.exports.getBlock(block.hash, 'hex')
                 .then(bytes => {
 
                     return new Promise(resolve => {

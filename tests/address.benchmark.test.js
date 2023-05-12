@@ -1,6 +1,6 @@
-import { getBlockByHeight, getBlock } from './utils.js'
-import fs from 'fs'
-import { BitcoinBlockStream } from '../index.js'
+const { getBlockByHeight, getBlock } = require('./utils.js')
+const fs = require('fs')
+const { BitcoinBlockStream } = require('../index.js')
 
 let start, end, start2, end2;
 //get block without addressess

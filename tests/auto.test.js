@@ -1,6 +1,6 @@
-import fs from 'fs';
-import { BitcoinBlockStream } from '../index.js'
-import { getBlockByHeight, getLastBlockHeight, getBlock } from './utils.js'
+const fs = require('fs');
+const { BitcoinBlockStream } = require('../index.js')
+const { getBlockByHeight, getLastBlockHeight, getBlock } = require('./utils.js')
 
 const N = 10;//check 10 random blocks
 
@@ -94,7 +94,7 @@ function checkRandomBlock(height) {
 
 }
 
-export function testStream() {
+module.exports.testStream = function testStream() {
     return getLastBlockHeight()
         .then(height => {
 

@@ -1,6 +1,6 @@
-import { testStream } from './auto.test.js';
-import { testAddress } from './address.test.js';
-import { testOrdParsing } from './ords.test.js';
+const { testStream } = require('./auto.test.js');
+const { testAddress } = require('./address.test.js');
+const { testOrdParsing } = require('./ords.test.js');
 
 console.log("===== start test by random blocks=====");
 testStream()

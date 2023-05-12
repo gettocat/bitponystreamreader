@@ -1,9 +1,8 @@
-import { BitcoinStream } from "./bitcoinstream.js";
-import { BitcoinTxStream } from "./bitcointxstream.js";
-import { BitcoinStreamAddressModule } from "./modules/address.js";
-import crypto from 'crypto';
+const { BitcoinStream } = require("./bitcoinstream.js");
+const { BitcoinTxStream } = require("./bitcointxstream.js");
+const crypto = require('crypto');
 
-export class BitcoinBlockStream extends BitcoinStream {
+module.exports.BitcoinBlockStream = class BitcoinBlockStream extends BitcoinStream {
 
     constructor(filter, opts, moduleList) {
         super(filter, opts, moduleList);

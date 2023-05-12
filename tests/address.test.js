@@ -1,4 +1,4 @@
-import { getLastBlockHeight, testBlockAddressOuts } from './utils.js'
+const { getLastBlockHeight, testBlockAddressOuts } = require('./utils.js')
 
 let N = 15;
 
@@ -12,7 +12,7 @@ const versions = {
     5: 'P2TR',
 }
 
-export function testAddress() {
+module.exports.testAddress = function testAddress() {
     return getLastBlockHeight()
         .then(height => {
             let addrVersionTested = {};

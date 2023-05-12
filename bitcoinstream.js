@@ -1,10 +1,9 @@
-import { BitcoinStreamModule } from './bitcoinstreammodule.js';
-import pkg from 'int64-buffer';
-const { Uint64LE } = pkg;
-import { Writable } from 'stream';
-import crypto from 'crypto';
+const { BitcoinStreamModule } = require('./bitcoinstreammodule.js');
+const { Uint64LE } = require('int64-buffer');
+const { Writable } = require('stream');
+const crypto = require('crypto');
 
-export class BitcoinStream extends Writable {
+module.exports.BitcoinStream = class BitcoinStream extends Writable {
 
     constructor(filter, opts, modules) {
         super(opts);

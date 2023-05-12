@@ -1,9 +1,8 @@
-import { BitcoinStream } from "./bitcoinstream.js";
-import { BitcoinTxStream } from "./bitcointxstream.js";
-import { BitcoinBlockStream } from "./bitcoinblockstream.js";
-import { BitcoinStreamModule } from "./bitcoinstreammodule.js";
-import { BitcoinStreamAddressModule } from "./modules/address.js"
-import { BitcoinStreamOrdModule } from "./modules/ords.js"
+const { BitcoinStream } = require("./bitcoinstream.js");
+const { BitcoinTxStream } = require("./bitcointxstream.js");
+const { BitcoinBlockStream } = require("./bitcoinblockstream.js");
+const { BitcoinStreamModule } = require("./bitcoinstreammodule.js");
+const { BitcoinStreamAddressModule } = require("./modules/address.js")
+const { BitcoinStreamOrdModule } = require("./modules/ords.js")
 
-export { BitcoinStream, BitcoinTxStream, BitcoinBlockStream, BitcoinStreamModule, BitcoinStreamAddressModule, BitcoinStreamOrdModule };
-export default BitcoinStream;
+module.exports = { BitcoinStream, BitcoinTxStream, BitcoinBlockStream, BitcoinStreamModule, BitcoinStreamAddressModule, BitcoinStreamOrdModule };

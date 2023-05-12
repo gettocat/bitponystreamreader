@@ -1,4 +1,4 @@
-import { BitcoinStreamModule } from "../bitcoinstreammodule.js";
+const { BitcoinStreamModule } = require("../bitcoinstreammodule.js");
 
 function haveOrds(scriptHex) {
     return scriptHex.indexOf("0063036f72640101") != -1;
@@ -34,7 +34,7 @@ function getOrd(scriptHex) {
     return ords;
 }
 
-export class BitcoinStreamOrdModule extends BitcoinStreamModule {
+module.exports.BitcoinStreamOrdModule = class BitcoinStreamOrdModule extends BitcoinStreamModule {
     constructor() {
         super('txin_script', 'ords', function () {
             if (!this.tx.in[this.readIn - 1])
@@ -52,7 +52,7 @@ export class BitcoinStreamOrdModule extends BitcoinStreamModule {
     }
 }
 
-export class BitcoinStreamOrdWitnessModule extends BitcoinStreamModule {
+module.exports.BitcoinStreamOrdWitnessModule = class BitcoinStreamOrdWitnessModule extends BitcoinStreamModule {
     constructor() {
         super('witness', 'ords', function () {
             const w = this.tx.witness[this.readWitnessArray - 1];

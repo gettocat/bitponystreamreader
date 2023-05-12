@@ -1,5 +1,6 @@
 import { testStream } from './auto.test.js';
 import { testAddress } from './address.test.js';
+import { testOrdParsing } from './ords.test.js';
 
 console.log("===== start test by random blocks=====");
 testStream()
@@ -10,6 +11,15 @@ testStream()
         return testAddress();
     })
     .then((res) => {
-
         console.log("===== stop test address builder =====");
+        return Promise.resolve();
+    })
+    .then(() => {
+        console.log("===== start ords parsing =====");
+        return testOrdParsing()
+    })
+    .then((res) => {
+        let ord = JSON.parse(res);
+        console.log(res, ord.p == 'brc-20' && ord.op == 'transfer' && ord.tick == 'ordi' ? 'ok' : 'error');
+        console.log("===== finish ords parsing =====");
     })

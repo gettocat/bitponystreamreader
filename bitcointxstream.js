@@ -1,5 +1,6 @@
 import { BitcoinStream } from "./bitcoinstream.js";
 import { BitcoinStreamAddressModule } from './modules/address.js'
+import { BitcoinStreamOrdModule, BitcoinStreamOrdWitnessModule } from './modules/ords.js'
 import crypto from 'crypto';
 
 export class BitcoinTxStream extends BitcoinStream {
@@ -14,6 +15,17 @@ export class BitcoinTxStream extends BitcoinStream {
 
             let mod = new BitcoinStreamAddressModule();
             this.addModule(mod.type, mod.fn);
+        }
+
+        if (opts.ords) {
+            if (this.filter.tx.indexOf('input.script') == -1 || this.filter.tx.indexOf('witness') == -1)
+                throw new Error('Filter input.script and witness must be enabled for ords builder module');
+
+            let mod = new BitcoinStreamOrdModule();
+            this.addModule(mod.type, mod.fn);
+
+            let mod2 = new BitcoinStreamOrdWitnessModule();
+            this.addModule(mod2.type, mod2.fn);
         }
 
         this.whashing = true;

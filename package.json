@@ -1,7 +1,6 @@
 {
     "name": "bitponystreamreader",
-    "type": "module",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "small and fast library for parsing bitcoin raw blocks and transactions",
     "main": "index.js",
     "bin": "",

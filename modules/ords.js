@@ -1,12 +1,10 @@
 const { BitcoinStreamModule } = require("../bitcoinstreammodule.js");
-const { Uint64BE } = require("int64-buffer");
 
 function haveOrds(scriptHex) {
     return scriptHex.indexOf("0063036f72640101") != -1;
 }
 
 function getOrd(scriptHex) {
-    console.log(scriptHex);
     let buff = Buffer.from(scriptHex, 'hex');
     let startOffset = 0;
     let contentTypeStart = 0;
